@@ -102,3 +102,60 @@ dist
 
 # TernJS port file
 .tern-port
+# trustee port file
+.fusewallet/
+# trusttreeglobal.com
+# home page-template page-template-front-page front-page page page-id-896 wp-custom-logo body app-data index-data singular-data page-data page-896-data page-glavnaya-data front-page-data
+class="progress-container"
+class="fp-first__statistics statistics"
+Web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8080"));
+abi = JSON.parse('[{"constant":false,"inputs":[{"name":"candidate","type":"bytes32"}],"name":"totalVotesFor","outputs":[{"name":"","type":"uint8"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"candidate","type":"bytes32"}],"name":"validCandidate","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"","type":"bytes32"}],"name":"votesReceived","outputs":[{"name":"","type":"uint8"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"x","type":"bytes32"}],"name":"bytes32ToString","outputs":[{"name":"","type":"string"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"candidateList","outputs":[{"name":"","type":"bytes32"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"candidate","type":"bytes32"}],"name":"voteForCandidate","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"contractOwner","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"inputs":[{"name":"candidateNames","type":"bytes32[]"}],"payable":false,"type":"constructor"}]')
+VotingContract = Web3.eth.contract(abi);
+// In your nodejs console, execute contractInstance.address to get the address at which the contract is deployed and change the line below to use your deployed address
+contractInstance = VotingContract.at('0x71d64D5544F633ebAf781Ac0955117C9052065fD');
+//'0x71d64D5544F633ebAf781Ac0955117C9052065fD'
+candidates = {"Bajbouj": "candidate-1", "Rchouda": "candidate-2", "Marzougi": "candidate-3", "Ali DHIBI": "candidate-4"}
+
+function voteForCandidate() {
+  candidateName = $("#candidate").val();
+  alert(candidateName);
+  contractInstance.voteForCandidate(candidateName, {from: Web3.eth.accounts[0]}, function() {
+    let div_id = candidates[candidateName];
+    $("#" + div_id).html(contractInstance.totalVotesFor.call(candidateName).toString());
+  });
+}
+
+$(document).ready(function() {
+  candidateNames = Object.keys(candidates);
+  for (var i = 0; i < candidateNames.length; i++) {
+    let name = candidateNames[i];
+    let val = contractInstance.totalVotesFor.call(name).toString()
+    $("#" + candidates[name]).html(val);
+  }
+);
+appsFlyer.initSdk(
+    {
+        devKey: 'qUa6hSzjW3RDsTgEYQh4oT',
+        isDebug: false,
+        appId: '1462924276',
+        onInstallConversionDataListener: true, // Optional
+        onDeepLinkListener: true, // Optional
+        timeToWaitForATTUserAuthorization: 10 // for iOS 14.5
+    }
+);
+}) end/end-end );
+render() {
+        return (
+            <AppearanceProvider>
+                <ThemeProvider>
+                    <Provider store={store}>
+                        <Router />
+                    </Provider>
+                </ThemeProvider>
+            </AppearanceProvider>
+        )
+    }; 
+    }); mc.createNode('condition', n=selection + "_bankForward_condition")
+    mc.setAttr(selection + "_bankBackward_condition.operation", 3)
+    mc.setAttr(selection + "_bankBackward_condition.colorIfFalseR", 0)
+    
